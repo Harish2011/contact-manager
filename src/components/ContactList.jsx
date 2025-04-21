@@ -1,24 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function ContactList({ contacts, deleteContact }) {
+function ContactList({ contacts = [], deleteContact }) {
   console.log("contacts, deleteContact", contacts);
 
   return (
     <div>
       {contacts.length === 0 ? (
-        <p>No contacts found.</p>
+        <p className="text-center text-gray-600">No contacts found.</p>
       ) : (
         contacts.map((contact) => (
-          <div key={contact.id} className="mb-2 border p-2 rounded">
-            <h3 className="font-semibold">{contact.name}</h3>
-            <p>{contact.email}</p>
-            <p>{contact.phone}</p>
-            <div className="mt-2">
-              <Link to={`/edit/${contact.id}`} className="mr-2 text-blue-500">
+          <div
+            key={contact.id}
+            className="mb-4 p-4 border border-gray-300 rounded-lg shadow-sm hover:shadow-md transition duration-200 ease-in-out"
+          >
+            <h3 className="font-semibold text-xl text-indigo-700">{contact.name}</h3>
+            <p className="text-gray-600">{contact.email}</p>
+            <p className="text-gray-600">{contact.phone}</p>
+            <div className="mt-4 flex justify-between">
+              <Link to={`/edit/${contact.id}`} className="text-blue-500 hover:text-blue-700">
                 Edit
               </Link>
-              <button onClick={() => deleteContact(contact.id)} className="text-red-500">
+              <button
+                onClick={() => deleteContact(contact.id)}
+                className="text-red-500 hover:text-red-700"
+              >
                 Delete
               </button>
             </div>
