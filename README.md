@@ -23,3 +23,5 @@ src/ ├── components/ │ ├── AddContact.jsx │ ├── EditContac
 - Tailwind CSS
 - UUID (for unique IDs)
 - LocalStorage (for data persistence)
+
+  https://harish2011.github.io/contact-manager/
