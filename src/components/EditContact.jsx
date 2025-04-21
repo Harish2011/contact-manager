@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-function EditContact({ contacts, updateContact }) {
+const EditContact = ({ contacts, updateContact }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const contactToEdit = contacts.find((c) => c.id === id);
@@ -23,33 +23,39 @@ function EditContact({ contacts, updateContact }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-2">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-4 max-w-lg mx-auto p-4 border border-gray-200 rounded-lg shadow-md bg-white"
+    >
       <input
         name="name"
         placeholder="Name"
         onChange={handleChange}
         value={form.name}
-        className="block border p-1 w-full"
+        className="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
       />
       <input
         name="email"
         placeholder="Email"
         onChange={handleChange}
         value={form.email}
-        className="block border p-1 w-full"
+        className="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
       />
       <input
         name="phone"
         placeholder="Phone"
         onChange={handleChange}
         value={form.phone}
-        className="block border p-1 w-full"
+        className="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
       />
-      <button type="submit" className="bg-green-500 text-white px-4 py-1">
-        Update
+      <button
+        type="submit"
+        className="w-full py-2 text-white bg-green-600 hover:bg-green-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+      >
+        Update Contact
       </button>
     </form>
   );
-}
+};
 
 export default EditContact;
